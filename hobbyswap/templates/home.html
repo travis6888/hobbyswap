@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{%  load staticfiles %}
+{% block content1 %}
+<h2>About HobbySwap </h2>
+    <p> Do you have a bunch of unused items around the house? A snowboard, bike, or someother hobby related item? </p>
+    <p>HobbySwap is here to solve your problem. We are a platform where people can post their items for rent!</p>
+    <p>We also make it easy to find and try new hobbies. Honestly hobbies are expensive and most of the time our items just sit.Therefore it is best to </p>
+
+ <a href="{% url 'about' %}" class="btn btn-default btn-lg">Learn more</a>
+{% endblock content1 %}
+{% block content2 %}
+<h2> Postings </h2>
+    <p>Experience new hobbies without the major upfront costs</p>
+    <script type="text/javascript">
+<!--
+var image1=new Image()
+image1.src="{% static 'img/snowboard.jpg' %}"
+var image2=new Image()
+image2.src="{% static 'img/kitesurfing.jpg' %}"
+var image3=new Image()
+image3.src="{% static 'img/jetski.jpg' %}"
+var image4=new Image()
+image4.src="{% static 'img/paintball.jpg' %}"
+var image5=new Image()
+image5.src="{% static 'img/sandrail.jpg' %}"
+var image6=new Image()
+image6.src="{% static 'img/boat.jpg' %}"
+var image7=new Image()
+image7.src="{% static 'img/mtb.jpg' %}"
+
+
+//-->
+</script>
+<body>
+<img src="{% static 'img/snowboard.jpg ' %}" name="slide" width="400" height="300" />
+<script>
+<!--
+//variable that will increment through the images
+var step=1
+function slideit(){
+//if browser does not support the image object, exit.
+if (!document.images)
+return
+document.images.slide.src=eval("image"+step+".src")
+if (step<7)
+step++
+else
+step=1
+//call function "slideit()" every 2.5 seconds
+setTimeout("slideit()",2500)
+}
+slideit()
+//-->
+</script>
+<br><br><br>
+<a href="{% url 'listing' %}" class="btn btn-default btn-lg">View Postings</a>
+
+{% endblock content2 %}
+{% block content3 %}
+    <h2>Post a hobby to rent or swap!</h2>
+    <p> Put that toy that is sitting in the garage to work for you!<p>
+    <a href="{% url 'post_item' %}" class="btn btn-default btn-lg">Post!</a>
+
+{% endblock content3 %}

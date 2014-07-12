@@ -8,47 +8,14 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'Condition'
-        db.create_table(u'hobbyswap_condition', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('condition', self.gf('django.db.models.fields.CharField')(max_length=50)),
-        ))
-        db.send_create_signal(u'hobbyswap', ['Condition'])
 
-        # Adding model 'Item'
-        db.create_table(u'hobbyswap_item', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('item', self.gf('django.db.models.fields.CharField')(max_length=100)),
-            ('post_user', self.gf('django.db.models.fields.related.ForeignKey')(related_name='user_post', to=orm['auth.User'])),
-            ('description', self.gf('django.db.models.fields.TextField')(max_length=4000)),
-            ('price', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
-            ('deposit', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
-            ('condition', self.gf('django.db.models.fields.related.ForeignKey')(related_name='item_condition', to=orm['hobbyswap.Condition'])),
-            ('beg_availability', self.gf('django.db.models.fields.DateTimeField')()),
-            ('end_availability', self.gf('django.db.models.fields.DateTimeField')()),
-            ('image', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True)),
-        ))
-        db.send_create_signal(u'hobbyswap', ['Item'])
-
-        # Adding model 'Renter'
-        db.create_table(u'hobbyswap_renter', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('name', self.gf('django.db.models.fields.related.ForeignKey')(related_name='renter', to=orm['auth.User'])),
-            ('rentals', self.gf('django.db.models.fields.related.ForeignKey')(related_name='items', to=orm['hobbyswap.Item'])),
-        ))
-        db.send_create_signal(u'hobbyswap', ['Renter'])
-
+        # Changing field 'Item.category'
+        db.alter_column(u'hobbyswap_item', 'category_id', self.gf('django.db.models.fields.related.ForeignKey')(default=1, to=orm['hobbyswap.Category']))
 
     def backwards(self, orm):
-        # Deleting model 'Condition'
-        db.delete_table(u'hobbyswap_condition')
 
-        # Deleting model 'Item'
-        db.delete_table(u'hobbyswap_item')
-
-        # Deleting model 'Renter'
-        db.delete_table(u'hobbyswap_renter')
-
+        # Changing field 'Item.category'
+        db.alter_column(u'hobbyswap_item', 'category_id', self.gf('django.db.models.fields.related.ForeignKey')(null=True, to=orm['hobbyswap.Category']))
 
     models = {
         u'auth.group': {
@@ -87,6 +54,11 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
+        u'hobbyswap.category': {
+            'Meta': {'object_name': 'Category'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
+        },
         u'hobbyswap.condition': {
             'Meta': {'object_name': 'Condition'},
             'condition': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
@@ -95,6 +67,7 @@ class Migration(SchemaMigration):
         u'hobbyswap.item': {
             'Meta': {'object_name': 'Item'},
             'beg_availability': ('django.db.models.fields.DateTimeField', [], {}),
+            'category': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'item_category'", 'to': u"orm['hobbyswap.Category']"}),
             'condition': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'item_condition'", 'to': u"orm['hobbyswap.Condition']"}),
             'deposit': ('django.db.models.fields.PositiveSmallIntegerField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'max_length': '4000'}),

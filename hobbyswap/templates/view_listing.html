@@ -1,0 +1,16 @@
+{%  extends 'base.html' %}
+{%  block content %}
+<a href="{% url 'messages_compose_to' item.post_user %}">Send Message</a>
+   <p>{{ item.item }}</p>
+    <p>{{ item.description }}</p>
+    <p>{{ item.price }}</p>
+    <p>{{ item.condition }}</p>
+        <p>{{ item.beg_availability }}</p>
+    <p>{{ item.end_availability }}</p>
+    <p>{{ item.deposit }}</p>
+    <img width="300px" src="{{ item.image.url }}">
+
+    <a href="{% url 'edit_post' item.id %}">Edit post</a>
+
+{% endblock %}
+

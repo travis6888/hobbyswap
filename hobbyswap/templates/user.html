@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p>Hi {{ request.user.username }}</p>
+    <p>Last login time:  {{ user.last_login }}</p>
+    <p> Date joined: {{ user.date_joined|timesince }} ago</p>
+    <p>Your email address is {{ user.email }}</p>
+    <p>Your first name is {{ user.first_name }}</p>
+    <p>Your last  name is {{ user.last_name }}</p>
+    <p>Your phone number is {{ user.phone }}</p>
+
+{% endblock content %}
