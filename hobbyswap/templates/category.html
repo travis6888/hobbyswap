@@ -1,7 +1,0 @@
-{% extends 'base.html' %}
-{%  block content %}
-    {% for category in listing %}
-        <p style="text-align: center"><a href="{% url "view_listing" category.id %}"> Item: {{ category.category }}</a></p>
-        <br><br>
-    {% endfor %}
-{% endblock content %}

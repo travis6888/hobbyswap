@@ -1,0 +1,61 @@
+{%  extends 'base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/grayscale.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/listing.css' %}">
+{% endblock %}
+
+{%  block content %}
+
+    <h2>{{ item.item }}</h2>
+    <p>Description: {{ item.description }}</p>
+    <p>Posted by: {{ item.post_user }}</p>
+    <p> {{ item.price }} per day</p>
+    <p>Condition: {{ item.condition }}</p>
+    <p> Beginning availability: {{ item.beg_availability }}</p>
+    <p> Unavailable after: : {{ item.end_availability }}</p>
+    <p>Deposit required: {{ item.deposit }}</p>
+    <img width="300px" src="{{ item.image.url }}">
+    <div class="helper">
+        <h1>Reviews</h1>
+    </div>
+    {% for review in item.reviewed_item.all %}
+           <div class="main-container">
+         <div class="class1">
+{#            <div class="image">#}
+{#                <img class="profile" src="{{ review.item.image.url }}" alt="Profile picture" height="150" width="175">#}
+{#            </div>#}
+            <div class="details">
+            <p class="class-name">{{ review.item }}</p>
+                <h3 class="teacher"> Posted by: {{ review.item.post_user }}</h3>
+                <p class="short-description">{{ review.subject }}</p>
+                <p class="short-description">{{ review.text }}</p>
+
+             </div>
+{#            <div class="cost">#}
+{#                <a href="{% url 'view_listing' listing.id %}" class="cost-button"><strong>${{ listing.price }}</strong> per day</a>#}
+{#            </div>#}
+         </div>
+        </div>
+    {% endfor %}
+{#    <p>{{  }}</p>#}
+    <br>
+    <ul class="list-inline banner-social-buttons">
+                    <li><a href="{% url 'messages_compose_to' item.post_user %}" class="btn btn-default btn-lg"> <span class="network-name">Send Message</span></a>
+                    </li>
+{#                    <li><a href="{% url 'view_review' item.post_user %}" class="btn btn-default btn-lg"> <span class="network-name">Send Message</span></a>#}
+
+                    {% if item.post_user != request.user %}
+                    <li><a href="{% url 'create_review' item.id %}" class="btn btn-default btn-lg"> <span class="network-name">Create review</span></a>
+                    </li>
+{#                    <li><a href="{% url 'edit_review' item.id %}" class="btn btn-default btn-lg"> <span class="network-name">Edit review</span></a>#}
+{#                    </li>#}
+                    {% endif %}
+                    {% if item.post_user == request.user %}
+                    <li><a href="{% url 'edit_post' item.id %}" class="btn btn-default btn-lg"> <span class="network-name">Edit post</span></a>
+                    </li>
+                    {% endif %}
+
+    {% endblock %}
+

@@ -46,3 +46,14 @@ class Renter(models.Model):
 
     def __unicode__(self):
         return u"{}".format(self.name)
+
+
+class Review(models.Model):
+    subject = models.CharField(max_length=150)
+
+    user = models.ForeignKey(User, related_name="user_review")
+    item = models.ForeignKey(Item, related_name="reviewed_item")
+    text = models.CharField(max_length=3000)
+
+    def __unicode__(self):
+        return u"{}".format(self.subject)

@@ -1,0 +1,22 @@
+{% extends "base2.html" %}
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+
+
+    <div class="classes-section">
+    <div class="helper">
+    <br>
+    <br>
+    <br>
+    <br>
+
+       <h2> Thank you for your post. Please check listings to view.</h2>
+    </div>
+    <ul class="list-inline banner-social-buttons">
+                    <li><a href="{% url 'listing' %}" class="btn btn-default btn-lg"> <span class="network-name">Listings</span></a>
+                    </li>
+
+    </ul>
+{% endblock %}

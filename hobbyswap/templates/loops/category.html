@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{%  block content %}
+    {% for category in listing %}
+        {% if category == "Misc" %}
+        {{ category.item }}
+        {%  endif %}
+        <p ><a href="{% url "view_listing" category.id %}"> Item: {{ category.item }}</a></p>
+        <br><br>
+    {% endfor %}
+{% endblock content %}
