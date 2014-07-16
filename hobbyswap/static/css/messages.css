@@ -1,7 +1,7 @@
 body {
     background-color: rgb(255, 244, 224);
     background: url(../img/background-snow1.png) fixed no-repeat center center;
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #FFFFFF), color-stop(1, #000524));;
+    /*background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #FFFFFF), color-stop(1, #000524));;*/
 
     background-size: cover;
 }

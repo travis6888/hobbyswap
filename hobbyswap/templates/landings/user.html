@@ -16,6 +16,8 @@
 <ul class="list-inline banner-social-buttons">
                     <li><a href="{% url 'messages_inbox' %}" class="btn btn-default btn-lg"> <span class="network-name">Messages</span></a>
                     </li>
+                    <li><a href="{% url 'edit_user' user.id %}" class="btn btn-default btn-lg"> <span class="network-name">Edit Profile</span></a>
+                    </li>
 {#                    {% if user_id == request.user %}#}
 {#                    <li><a href="{% url 'edit_user' user_id %}" class="btn btn-default btn-lg"> <span class="network-name">Edit Profile</span></a>#}
 {#                    </li>#}

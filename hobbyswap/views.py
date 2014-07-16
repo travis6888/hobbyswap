@@ -222,14 +222,16 @@ def create_review(request, item_id):
         return render(request, "forms/review_item.html", data)
 
     else:
-        return redirect('listing')
+        return redirect('error')
 
 
 @login_required
-def edit_review(request, item_id):
+def edit_review(request, item_id, user_id):
     item = Item.objects.get(id=item_id)
+    review = item.reviewed_item.filter()
+    user = User.objects.get(id=user_id)
     # edit_reviews = Review.objects.get(id=review_id)
-    if Review.user == request.user:
+    if review.user == request.user:
         if request.method == "POST":
             form = PostItemForm(request.POST, request.FILES)
             if form.is_valid():

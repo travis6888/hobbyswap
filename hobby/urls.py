@@ -15,27 +15,19 @@ urlpatterns = patterns('',
     url(r'^careers/$', 'hobbyswap.views.careers', name='careers'),
     url(r'^messages/', include('django_messages.urls')),
     url(r'^error/$', 'hobbyswap.views.error', name='error'),
-
     url(r'^create_review/(?P<item_id>\d+)/$', 'hobbyswap.views.create_review', name='create_review'),
-
     url(r'^view_review/(?P<item_id>\d+)/$', 'hobbyswap.views.view_review', name='view_review'),
     url(r'^edit_review/(?P<item_id>\d+)/$', 'hobbyswap.views.edit_review', name='edit_review'),
     url(r'^post/$', 'hobbyswap.views.post_item', name='post_item'),
-    # url(r'^select_listing/(?P<item_id>\d+)/$', 'hobbyswap.views.select_listing', name='select_listing'),
     url(r'^edit_post/(?P<item_id>\d+)/$', 'hobbyswap.views.edit_post', name='edit_post'),
     url(r'^listing/$', 'hobbyswap.views.listing', name='listing'),
     url(r'^reviews/$', 'hobbyswap.views.reviews', name='reviews'),
-
     url(r'^view_listing/(?P<item_id>\d+)/$', 'hobbyswap.views.view_listing', name='view_listing'),
     url(r'^about/$', 'hobbyswap.views.about', name='about'),
     url(r'^category/$', 'hobbyswap.views.category', name='category'),
     url(r'^thanks/$', 'hobbyswap.views.thanks', name='thanks'),
     url(r'^view_user/(?P<user_id>\d+)/$', 'hobbyswap.views.view_user', name='view_user'),
-    url(r'^edit_user/(?P<user_id>\d+)/$', 'hobbyswap.views.edit_profile', name='edit_profile'),
-
-    # url(r'^compose/$', compose, {'form_class': MyComposeForm,}, name='messages_compose'),
-
-
+    url(r'^edit_user/(?P<user_id>\d+)/$', 'hobbyswap.views.edit_profile', name='edit_user'),
     url(r'^profile/$', 'hobbyswap.views.profile', name='profile'),
     url(r'^register/$', 'hobbyswap.views.register', name='register'),
     url(r'^login/$', 'django.contrib.auth.views.login', name='login'),
