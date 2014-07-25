@@ -179,7 +179,7 @@ def edit_post(request, item_id):
                 return redirect("/view_listing/{}".format(item_id))
         else:
             form = PostItemForm(initial={'item': item, 'category': item, 'price': item.price, 'condition': item, 'deposit':
-                                         item.deposit, 'description': item, 'end_availability': item.end_availability,
+                                         item.deposit, 'description': item.description, 'end_availability': item.end_availability,
                                          'beg_availability': item.beg_availability, 'image': item.image })
         data = {"form": form, "item": item}
         return render(request, "forms/edit_post.html", data)
