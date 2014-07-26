@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/grayscale.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/messages.css' %}">
+
+{% endblock %}
+{% load i18n %}
+{% load url from future %} 
+{% block bodyclass %}about{% endblock %}
+{% block content %}  
+{% endblock %}
+{% block sidebar %}
+<ul class="subnavilist">
+    <li class=""><a href="{% url 'messages_inbox' %} ">&raquo;&nbsp;{% trans "Inbox" %}</a></li>
+    <li><a href="{% url 'messages_outbox' %} ">&raquo;&nbsp;{% trans "Sent Messages" %}</a></li>
+    <li><a href="{% url 'messages_compose' %} ">&raquo;&nbsp;{% trans "New Message" %}</a></li>
+    <li><a href="{% url 'messages_trash' %} ">&raquo;&nbsp;{% trans "Trash" %}</a></li>
+</ul>
+{% endblock %}

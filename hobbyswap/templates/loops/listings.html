@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/listing.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <div class="classes-section">
+    <div class="helper">
+        <h1>Available Listings</h1>
+    </div>
+    <ul class="list-inline banner-social-buttons">
+                    <li><a href="{% url 'post_item' %}" class="btn btn-default btn-lg"> <span class="network-name">Post Hobby</span></a>
+                    </li>
+                    <li><a href="{% url 'reviews' %}" class="btn btn-default btn-lg"> <span class="network-name">Reviews</span></a>
+                    </li>
+    </ul>
+    <br>
+    <br>
+    <br>
+    <div class="main-container">
+    {% for listing in listings %}
+         <div class="class1">
+            <div class="image">
+                <img class="profile" src="{{ listing.image.url }}" alt="Profile picture" height="150" width="175">
+            </div>
+            <div class="details">
+            <a href="{% url 'view_listing' listing.id %}" class="class-name">{{ listing }}</a>
+                <h3 class="teacher"> Posted by: {{ listing.post_user }}</h3>
+                <p class="short-description">{{ listing.description }}</p>
+             </div>
+            <div class="cost">
+                <a href="{% url 'view_listing' listing.id %}" class="cost-button"><strong>${{ listing.price }}</strong> per day</a>
+            </div>
+         </div>
+    {% endfor %}
+    </div>
+</div>
+        <br><br>
+
+{% endblock content %}
+

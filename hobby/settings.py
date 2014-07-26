@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'hobbyswap',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,9 +38,20 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'south',
-    'hobbyswap'
-)
+    'debug_toolbar',
+    'django_messages',
 
+)
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    "django.core.context_processors.request",
+)
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -52,6 +64,20 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'hobby.urls'
 
 WSGI_APPLICATION = 'hobby.wsgi.application'
+
+LOGIN_REDIRECT_URL = 'user'
+
+LOGIN_URL = 'login'
+
+# AUTH_USER_MODEL = 'User'
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'travis.cockcroft1@gmail.com'
+EMAIL_HOST_PASSWORD = 'travis88'
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = 'travis.cockcroft1@gmail.com'
 
 
 # Database
@@ -82,6 +108,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, "static", *MEDIA_URL.strip("/").split("/"))
+
 try:
     from local_settings import *
 except ImportError:

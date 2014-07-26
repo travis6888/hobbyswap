@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+    <h1>Edit listing {{ items.item }}</h1>
+
+        <form enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Update item">
+{% endblock content %}
