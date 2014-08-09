@@ -36,7 +36,6 @@ def category(request):
     return render(request, 'loops/category.html', data)
 
 
-
 def reviews(request):
     reviews = Review.objects.all()
     data = {'reviews': reviews}
