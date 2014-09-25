@@ -19,7 +19,7 @@ def careers(request):
 
 
 def home(request):
-    return render(request, 'landings/home.html')
+    return render(request, 'index.html')
 
 
 def error(request):

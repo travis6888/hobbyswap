@@ -1,60 +1,23 @@
 {% extends "base.html" %}
-{%  load staticfiles %}
+{% load staticfiles %}
 {% block content %}
-    <h1 >HobbySwap</h1>
-    <p >The best way to find new hobbies and put your unused items to work for you</p>
+    <h1>HobbySwap</h1>
+        <h4>The best way to find new hobbies and put your unused items to work for you</h4>
+    <h5>Search Hobbies to Rent Today!</h5>
+    <input width="30px" height="27px" placeholder="Search for toys"><button class="btn btn-default btn-lg">Search</button>
+
+
 {% endblock %}
 {% block content1 %}
 
- <a href="{% url 'about' %}" class="btn btn-default btn-lg">Learn more</a>
+    <a href="{% url 'about' %}" class="btn btn-default btn-lg">Learn more</a>
 {% endblock %}
 
 {% block content2 %}
-<h2> Postings </h2>
+    <h2> Postings </h2>
     <p>Experience new hobbies without the major upfront costs</p>
-    <script type="text/javascript">
-<!--
-var image1=new Image()
-image1.src="{% static 'img/snowboard.jpg' %}"
-var image2=new Image()
-image2.src="{% static 'img/kitesurfing.jpg' %}"
-var image3=new Image()
-image3.src="{% static 'img/jetski.jpg' %}"
-var image4=new Image()
-image4.src="{% static 'img/paintball.jpg' %}"
-var image5=new Image()
-image5.src="{% static 'img/sandrail.jpg' %}"
-var image6=new Image()
-image6.src="{% static 'img/boat.jpg' %}"
-var image7=new Image()
-image7.src="{% static 'img/mtb.jpg' %}"
 
-
-//-->
-</script>
-<body>
-<img src="{% static 'img/snowboard.jpg ' %}" name="slide" width="400" height="300" />
-<script>
-<!--
-//variable that will increment through the images
-var step=1
-function slideit(){
-//if browser does not support the image object, exit.
-if (!document.images)
-return
-document.images.slide.src=eval("image"+step+".src")
-if (step<7)
-step++
-else
-step=1
-//call function "slideit()" every 2.5 seconds
-setTimeout("slideit()",2500)
-}
-slideit()
-//-->
-</script>
-<br><br><br>
-<a href="{% url 'listing' %}" class="btn btn-default btn-lg">View Postings</a>
+    <a href="{% url 'listing' %}" class="btn btn-default btn-lg">View Postings</a>
 
 {% endblock content2 %}
 {% block content3 %}
