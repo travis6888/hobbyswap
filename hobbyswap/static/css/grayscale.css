@@ -372,3 +372,9 @@ body {
 .landingMoreBtn{
     margin: 30px;
 }
+.ownerAbout{
+    display: none;
+}
+.renterAbout{
+    display: none;
+}
