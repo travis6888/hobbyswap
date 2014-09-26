@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Grayscale - Start Bootstrap Theme</title>
+    <title>HobbySwap</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
@@ -58,11 +58,16 @@
                     <a class="page-scroll" href="#about">About</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#download">Download</a>
+                    <a class="page-scroll" href="#download">FAQ</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#contact">Contact</a>
+                    <a class="page-scroll" href="#contact">Listings</a>
                 </li>
+                <li>
+                    <a class="" href="{% url 'post_item' %}">Post</a>
+                </li>
+
+
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -80,10 +85,11 @@
 
                     <p class="intro-text">Make money renting your hobby items<br>or find new hobbies to try</p>
 
-                    <input placeholder="Enter Hobby" class="input-lg hobbySearchInput">
+                    <input placeholder="Surfboard, Jetski, etc" class="input-lg hobbySearchInput">
                     <button class="btn btn-default btn-lg">Search Now</button>
                     <br>
-                    <button class="btn btn-lg btn-default landingMoreBtn"> <a href="#about" class="btn btn-lg page-scroll">
+                    <button class="btn btn-lg btn-default landingMoreBtn"><a href="#about"
+                                                                             class="btn btn-lg page-scroll">
                         More
                     </a></button>
                 </div>
@@ -99,15 +105,15 @@
             <h2>About HobbySwap</h2>
 
             <p>HobbySwap was born with idea that owners of expensive hobbies shouldn't let them sit for 98% of their
-                ownership. Also the barrier for people to try new hobbies should be low. HobbySwap creates a marketplace where
-            owners can post their hobbies for rent and users can find hobbies near them for rent. Browse our featured listings and find something new and fun to do!</p>
+                ownership. Also the barrier for people to try new hobbies should be low. HobbySwap creates a marketplace
+                where
+                owners can post their hobbies for rent and users can find hobbies near them for rent. Browse our
+                featured listings and find something new and fun to do!</p>
 
-            <p>
-            <button class="btn btn-default btn-lg"><a href="#download" class="page-scroll"> Owner's</a></button>
 
-            <button class="btn-default btn btn-lg"><a href="#download" class="page-scroll"> Renter's</a></button>
-                            </p>
-
+            <a href="#download" class="btn btn-circle page-scroll">
+                <i class="fa fa-angle-double-down animated"></i>
+            </a>
         </div>
     </div>
 </section>
@@ -117,20 +123,56 @@
     <div class="download-section">
         <div class="container">
             <div class="col-lg-8 col-lg-offset-2">
+                <h3>FAQS</h3>
+
+                <p>
+
+                    <button class="btn btn-default btn-lg ownerBtn"> Owner's</button>
+
+                    <button class="btn-default btn btn-lg renterBtn"> Renter's</button>
+                </p>
                 <div class="renterAbout">
-                    <p></p>
+                    <p>How much does it cost? The price of the rental is based on the owner's input.
+                        The daily insurance cost is done by our team. Together we believe that these costs give great
+                        benefit to the renter and the owner. A renter is able to rent an expensive hobby item for much
+                        cheaper.
+                        Also, if the renter buys the daily insurance rate the renter is able to rent without a major
+                        worry of damaging the item.
+                    </p>
+
+                    <p>
+                        Do I need to have a license to rent the motor vehicles? Yes, you need to have a valid drivers
+                        license to rent any of the
+                        of the motor vehicles. We also offer renter's the ability be a certified renter. For a small fee
+                        and after taking a driving test on similar
+                        vehicles, a renter will be offered lower daily insurance rates and owners will be more likely to
+                        rent to renters.
+                    </p>
+
                 </div>
                 <div class="ownerAbout">
                     <h3>Owner FAQ</h3>
+
                     <p>We want to protect our owner's as much as possible. We strive to make renting your items as
-                    painless as possible. We offer two great values to owner's!</p><ul><li><p>One, we make it very easy to rent and make
-                    money!</p></li><li><p>Second, we want to make the ownership costs lower for our owners!</p></li></ul><p>
-                    Therefore if you post your items for rent for 2 weeks a month, we offer reduced insurance costs on your items!
-                    It gets even better! The more you rent out your items the more money you receive and the cheaper the ownership gets!</p>
+                        painless as possible. We offer two great values to owner's!</p>
+                    <ul>
+                        <li><p>One, we make it very easy to rent and make
+                            money!</p></li>
+                        <li><p>Second, we want to make the ownership costs lower for our owners!</p></li>
+                    </ul>
                     <p>
-                        Wait? What about my items? I don't want them getting damaged! Exactly why we offer the insurance for renter's too. Renter's
-                        are offered daily insurance coverage while renting your items. We also hold a deposit in escrow while the items are being rented out.
-                        Again our owner's are very important to us and we will do our best to handle any problems that arise.
+                        Therefore if you post your items for rent for 2 weeks a month, we offer reduced insurance costs
+                        on your items!
+                        It gets even better! The more you rent out your items the more money you receive and the cheaper
+                        the ownership gets!</p>
+
+                    <p>
+                        Wait? What about my items? I don't want them getting damaged! Exactly why we offer the insurance
+                        for renter's too. Renter's
+                        are offered daily insurance coverage while renting your items. We also hold a deposit in escrow
+                        while the items are being rented out.
+                        Again our owner's are very important to us and we will do our best to handle any problems that
+                        arise.
                     </p>
 
                 </div>
@@ -170,12 +212,15 @@
 <!-- Plugin JavaScript -->
 <script src='{% static "js/jquery.easing.min.js" %}'></script>
 
+
 <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
 <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src='{% static "js/grayscale.js" %}'></script>
+<script src="{% static 'js/hobbyswap.js' %}"></script>
+
 
 </body>
 
