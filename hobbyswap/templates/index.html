@@ -16,7 +16,10 @@
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom CSS -->
+
     <link href='{% static "css/grayscale.css" %}' rel="stylesheet">
+            <link href='{% static "css/match.css" %}' rel="stylesheet">
+
 
     <!-- Custom Fonts -->
     <link href='{% static "font-awesome-4.1.0/css/font-awesome.min.css" %}' rel="stylesheet" type="text/css">
@@ -103,6 +106,7 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <h2>About HobbySwap</h2>
+            <div class="about">
 
             <p>HobbySwap was born with idea that owners of expensive hobbies shouldn't let them sit for 98% of their
                 ownership. Also the barrier for people to try new hobbies should be low. HobbySwap creates a marketplace
@@ -110,7 +114,7 @@
                 owners can post their hobbies for rent and users can find hobbies near them for rent. Browse our
                 featured listings and find something new and fun to do!</p>
 
-
+            </div>
             <a href="#download" class="btn btn-circle page-scroll">
                 <i class="fa fa-angle-double-down animated"></i>
             </a>
@@ -132,7 +136,9 @@
                     <button class="btn-default btn btn-lg renterBtn"> Renter's</button>
                 </p>
                 <div class="renterAbout">
-                    <p>How much does it cost? The price of the rental is based on the owner's input.
+                                        <h3>Renter FAQ</h3>
+
+                    <p>How much does it cost?</p><p>The price of the rental is based on the owner's input.
                         The daily insurance cost is done by our team. Together we believe that these costs give great
                         benefit to the renter and the owner. A renter is able to rent an expensive hobby item for much
                         cheaper.
@@ -141,7 +147,7 @@
                     </p>
 
                     <p>
-                        Do I need to have a license to rent the motor vehicles? Yes, you need to have a valid drivers
+                        Do I need to have a license to rent the motor vehicles?</p><p> Yes, you need to have a valid drivers
                         license to rent any of the
                         of the motor vehicles. We also offer renter's the ability be a certified renter. For a small fee
                         and after taking a driving test on similar
@@ -187,15 +193,49 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <h2>Featured Listings</h2>
+{% for listing in listings|slice:":3" %}
+                <div class="col-md-4">
+                    <div class="thumbnail">
 
+                        <div class="class1 text-center">
+                            <p>{{ listing.category }}</p>
+
+                            <div class="image">
+                                <img class="profile" src="{{ listing.image.url }}" alt="Profile picture" height="75"
+                                     width="75">
+                            </div>
+                            <div class="details">
+                                <p><a href="{% url 'view_listing' listing.id %}" class="class-name">{{ listing }}</a>
+                                </p>
+
+                                <p class="postBy"> Posted by: {{ listing.post_user }}</p>
+                                {#                <p class="short-description">{{ listing.description }}</p>#}
+                            </div>
+                            <div class="cost">
+                                <p><a href="{% url 'view_listing' listing.id %}"
+                                      class="cost-button"><strong>${{ listing.price }}</strong> per day</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
 
         </div>
     </div>
 </section>
 
 <!-- Map Section -->
-<div id="map"></div>
-
+<div class="bottomBtns">
+  <ul class="list-inline banner-social-buttons text-center">
+                    <li><a href="{% url 'listing' %}" class="btn btn-default btn-lg"> <span class="network-name">Listings</span></a>
+                    </li>
+<li><a href="{% url 'reviews' %}" class="btn btn-default btn-lg"> <span class="network-name">Reviews</span></a>
+                    </li>
+      <li><a href="{% url 'register' %}" class="btn btn-default btn-lg"> <span class="network-name">Register</span></a>
+                    </li>
+    </ul>
+</div>
 <!-- Footer -->
 <footer>
     <div class="container text-center">

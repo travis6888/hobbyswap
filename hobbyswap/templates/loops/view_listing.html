@@ -4,9 +4,17 @@
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/grayscale.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/listing.css' %}">
+{#        <link rel="stylesheet" type="text/css" href="{% static 'css/match.css' %}">#}
+
 {% endblock %}
 
 {%  block content %}
+    <div class="col-md-12">
+    <div class="col-md-6 col-md-offset-3">
+
+<div class="hobby">
+<div class="thumbnail text-center">
+    <img width="150px" src="{{ item.image.url }}">
 
     <h2>{{ item.item }}</h2>
     <p>Description: {{ item.description }}</p>
@@ -14,13 +22,16 @@
     <p> {{ item.price }} per day</p>
     <p>Condition: {{ item.condition }}</p>
     <p> Beginning availability: {{ item.beg_availability }}</p>
-    <p> Unavailable after: : {{ item.end_availability }}</p>
+    <p> Available until: : {{ item.end_availability }}</p>
     <p>Deposit required: {{ item.deposit }}</p>
-    <img width="300px" src="{{ item.image.url }}">
     <div class="helper">
-        <h1>Reviews</h1>
     </div>
+    </div>
+            <h3 class="text-center text-capitalize">Reviews</h3>
+
     {% for review in item.reviewed_item.all %}
+            <div class="thumbnail">
+
            <div class="main-container">
          <div class="class1">
 {#            <div class="image">#}
@@ -38,10 +49,14 @@
 {#            </div>#}
          </div>
         </div>
+        </div>
     {% endfor %}
+    </div>
+    </div>
+    </div>
 {#    <p>{{  }}</p>#}
     <br>
-    <ul class="list-inline banner-social-buttons">
+    <ul class="list-inline banner-social-buttons text-center buttons">
 
 {#                    <li><a href="{% url 'view_review' item.post_user %}" class="btn btn-default btn-lg"> <span class="network-name">Send Message</span></a>#}
 
@@ -52,11 +67,11 @@
                     </li>
 {#                    <li><a href="{% url 'edit_review' item.id %}" class="btn btn-default btn-lg"> <span class="network-name">Edit review</span></a>#}
 {#                    </li>#}
-                    {% endif %}
-                    {% if item.post_user == request.user %}
+                    {% elif item.post_user == request.user %}
                     <li><a href="{% url 'edit_post' item.id %}" class="btn btn-default btn-lg"> <span class="network-name">Edit post</span></a>
                     </li>
                     {% endif %}
+    </ul>
 
     {% endblock %}
 

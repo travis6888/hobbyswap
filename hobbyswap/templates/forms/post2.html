@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/datepicker.css' %}">
+
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-6 col-md-offset-3">
+    <div class="postForm">
+        <form method="post" action="/post_item/" enctype="multipart/form-data">
+
+            {% csrf_token %}
+            <div class="firstPart">
+                <h3>Welcome Owner!</h3>
+                <p>Please fill out each section thoroughly to post an item to rent on HobbySwap. Every item is mandatory
+                and the form will not submit without all of them.</p>
+                <div class="form-group-lg">
+                    {#                <label for="id_item">Item:</label> #}
+                    <input id="id_item" maxlength="100" name="item"
+                           placeholder="Hobby item" type="text"/></div>
+                <div class="form-group-lg">
+                    {#                <label for="id_description">Description:</label>#}
+                    <textarea cols="30" id="id_description" name="description" placeholder="Detailed Description of item" rows="5" maxlength="3000"></textarea></div>
+                <a class="btn-lg btn btn-default BtnFirst">Next Part</a>
+            </div>
+            <div class="secondPart">
+                <h3>Hobby Characteristics</h3>
+                <p>Please pick the category that best describes your item and the price per day you are seeking. The deposit is base on the current market value of your item.
+                If you need help please check out our friends <a target="_blank" href="http://www.statricks.com">Statricks</a></p>
+                <div class="form-group-lg">
+                    {#                <label for="id_category">Category:</label> #}
+                    <select id="id_category"
+                            name="category"
+                            class="form-group-lg">
+
+                        <option value="1" selected="selected">Misc</option>
+                        <option value="2">Land Motorsports</option>
+                        <option value="3">Water powersports</option>
+                        <option value="4">Water hobbies</option>
+                        <option value="5">Bikes</option>
+                        <option value="6">Competitive Sports</option>
+                        <option value="7">Extreme sports</option>
+                    </select></div>
+
+                <div class="form-group-lg">
+                    {#                <label for="id_price">Price:</label>#}
+                    <input id="id_price" name="price"
+                           placeholder="Please enter price per day"
+                           type="text"/>
+                </div>
+                <div class="form-group-lg">
+                    {#                <label for="id_deposit">Deposit:</label> #}
+                    <input id="id_deposit" name="deposit"
+                           placeholder="Enter deposit"
+                           type="text"/>
+                </div>
+
+                <div class="form-group-lg">
+                    {#                <label for="id_condition">Condition:</label>#}
+
+                    <select id="id_condition" name="condition">
+                        <option value="" selected="selected">---------</option>
+                        <option value="1">good</option>
+                    </select></div>
+            <a class="btn btn-default btn-lg BtnLast">Last Part</a>
+            </div>
+
+            <div class="lastPart">
+                <h3>Almost Finished!</h3>
+                <p>Please pick the days the item is free and picture of the hobby item!</p>
+                <div class="form-group-lg">
+                    {#                <label for="id_beg_availability">Beg availability:</label>#}
+                    <input
+                            class="datepicker" id="id_beg_availability" name="beg_availability"
+                            placeholder="Please enter Beginning Date" type="text"/></p>
+                </div>
+                <div class="form-group-lg">
+                    {#                <label for="id_end_availability">End availability:</label> #}
+                    <input class="datepicker"
+                           id="id_end_availability"
+                           name="end_availability"
+                           placeholder="Please enter End Date"
+                           type="text"/>
+
+                </div>
+                <div class="form-group-lg">
+                    {#                <label for="id_image">Image:</label> #}
+                    <input id="id_image" name="image" type="file"/>
+
+                </div>
+                            <input type="submit" value="Submit" class=" btn btn-default btn-lg">
+
+                                            </div>
+
+
+        </form>
+    </div>
+    </div>
+{% endblock %}

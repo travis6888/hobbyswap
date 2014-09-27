@@ -19,7 +19,9 @@ def careers(request):
 
 
 def home(request):
-    return render(request, 'index.html')
+    listings = Item.objects.all()
+    data = {'listings': listings}
+    return render(request, 'index.html', data)
 
 
 def error(request):
@@ -45,7 +47,7 @@ def reviews(request):
 def listing(request):
     listings = Item.objects.all()
     data = {'listings': listings}
-    return render(request, 'loops/listings.html', data)
+    return render(request, 'listings2.html', data)
 
 
 def view_user(request, user_id):
@@ -156,7 +158,7 @@ def post_item(request):
 
     items = Item.objects.all()
     data = {"form": form, "items": items}
-    return render(request, "forms/post.html", data)
+    return render(request, "forms/post2.html", data)
 
 @login_required
 def edit_post(request, item_id):

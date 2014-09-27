@@ -1,0 +1,78 @@
+/*!
+ * Start Bootstrap - Thumbnail Gallery HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body, html {
+    /*padding-top: 70px; *//* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    height: 100%;
+    width: 100%;
+}
+
+.thumb {
+
+    height: 300px;
+    /*position: absolute;*/
+    /*top: 15px;*/
+    bottom: 0;
+    /*left: 15px;*/
+    right: 0;
+    text-align:center;
+    border: 2px solid blue;
+    margin: 20px;
+    ;
+    /*padding-top:calc(50% - 30px);*/
+
+}
+
+.hero-spacer {
+    margin-top: 50px;
+}
+
+.hero-feature {
+    margin-bottom: 30px;
+}
+
+.thumbnail{
+    border-top: 30px #00a3ff solid;
+    height: 300px;
+    margin-top: 30px;
+    margin-bottom: -10px;
+    background-color: #E5E5E5;
+    border-radius: 10px;
+}
+
+
+.thumbnail2{
+    height: 200px;
+    margin-top: 30px;
+    margin-bottom: -10px;
+    background-color: #E5E5E5;
+}
+
+
+.thumbnail:hover{
+    -webkit-transition: .5s ease;
+    transition: .8s ease;
+    box-shadow: 0 0 20px #ffffff;
+
+}
+.cost{
+    /*margin: 10px;*/
+
+
+}
+.listingGroup{
+    margin-top: 100px;
+}
+.thumbnail p{
+    margin: 0;
+    color: #000000;
+}
+ p{
+    color: #ffffff;
+}
+ .bottomBtns{
+     margin-top: 30px;
+ }
