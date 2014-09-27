@@ -175,3 +175,15 @@ h3{
 .buttons li{
     margin-top: 30px;
 }
+.thumbnail2 {
+    border-top: 30px #00a3ff solid;
+    /*height: 900px;*/
+    margin-top: 30px;
+    margin-bottom: -10px;
+    background-color: #E5E5E5;
+    border-radius: 10px;
+    color: #000000;
+}
+.helper{
+    margin-top: 100px;
+}

@@ -19,7 +19,9 @@ def careers(request):
 
 
 def home(request):
-    return render(request, 'index.html')
+    listings = Item.objects.all()
+    data = {'listings': listings}
+    return render(request, 'index.html', data)
 
 
 def error(request):

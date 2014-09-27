@@ -66,8 +66,13 @@ body, html {
 .listingGroup{
     margin-top: 100px;
 }
-p{
+.thumbnail p{
     margin: 0;
     color: #000000;
 }
-
+ p{
+    color: #ffffff;
+}
+ .bottomBtns{
+     margin-top: 30px;
+ }
