@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/match.css' %}">
+
+{% endblock %}
+{% block content %}
+    <div class="col-md-12">
+
+<div class="listingGroup">
+    {% for listing in listings %}
+        <div class="col-md-4">
+         <div class="thumbnail">
+
+        <div class="class1 text-center">
+            <p>{{ listing.category }}</p>
+            <div class="image">
+                <img class="profile" src="{{ listing.image.url }}" alt="Profile picture" height="75" width="75">
+            </div>
+            <div class="details">
+            <p><a href="{% url 'view_listing' listing.id %}" class="class-name">{{ listing }}</a></p>
+                <p class="postBy"> Posted by: {{ listing.post_user }}</p>
+{#                <p class="short-description">{{ listing.description }}</p>#}
+             </div>
+            <div class="cost">
+                <p><a href="{% url 'view_listing' listing.id %}" class="cost-button"><strong>${{ listing.price }}</strong> per day</a></p>
+            </div>
+         </div>
+                </div>
+        </div>
+
+    {% endfor %}
+</div>
+    </div>
+{% endblock %}

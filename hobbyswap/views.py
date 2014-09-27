@@ -45,7 +45,7 @@ def reviews(request):
 def listing(request):
     listings = Item.objects.all()
     data = {'listings': listings}
-    return render(request, 'loops/listings.html', data)
+    return render(request, 'listings2.html', data)
 
 
 def view_user(request, user_id):
