@@ -156,7 +156,7 @@ def post_item(request):
 
     items = Item.objects.all()
     data = {"form": form, "items": items}
-    return render(request, "forms/post.html", data)
+    return render(request, "forms/post2.html", data)
 
 @login_required
 def edit_post(request, item_id):
