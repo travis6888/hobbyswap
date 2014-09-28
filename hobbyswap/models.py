@@ -38,6 +38,11 @@ class Item(models.Model):
 
     def __unicode__(self):
         return u"{}".format(self.item)
+    #
+    # def as_json(self):
+    #     return dict(item=self.item, post_user=self.post_user,
+    #                 description=self.description, price=self.price, deposit=self.deposit,
+    #                 condition=self.condition)
 
 
 class Renter(models.Model):
