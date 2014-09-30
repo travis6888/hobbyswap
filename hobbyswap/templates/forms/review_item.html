@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base2.html" %}
 {% load staticfiles %}
 
 {% block css %}
@@ -9,5 +9,5 @@
 <form  method="post">
 {% csrf_token %}
 {{ form.as_p }}
-<input type="submit" value="Submit Review">
+<input class="btn-lg btn btn-default" type="submit" value="Submit Review">
 {% endblock %}
