@@ -85,3 +85,17 @@ label {
 .lastPart{
     display: none;
 }
+h1::before {
+    background: inherit;
+    color: #ffffff;
+   margin-top: 100px;
+}
+h1{
+    background: inherit;
+    color: #ffffff;
+   margin-top: 100px;
+
+}
+.Login{
+    margin-top: 100px;
+}

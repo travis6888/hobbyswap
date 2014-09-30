@@ -1,8 +1,8 @@
 body {
-    background-color: rgb(255, 244, 224);
-    background: url(../img/background-snow1.png) fixed no-repeat center center;
+    background-color: rgb(0, 0, 0);
+    /*background: url(../img/background-snow1.png) fixed no-repeat center center;*/
     /*background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #FFFFFF), color-stop(1, #000524));;*/
-
+color: #ffffff;
     background-size: cover;
 }
 
@@ -47,8 +47,10 @@ body {
     /*transition: .1s ease;*/
 /*}*/
 
-h1 {
-    color: #5e5e5e
+h1::before {
+    background: inherit;
+    color: #ffffff;
+   margin-top: 100px;
 }
 
 table {

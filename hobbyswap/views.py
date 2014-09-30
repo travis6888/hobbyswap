@@ -1,10 +1,13 @@
-
+import json
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.core import serializers
 
 from django.core.mail import EmailMultiAlternatives
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 # Create your views here.
+from django.views.decorators.csrf import csrf_exempt
 from hobby import settings
 from hobbyswap.forms import EmailUserCreationForm, PostItemForm, ReviewForm
 from hobbyswap.models import Item, Review
@@ -247,4 +250,11 @@ def edit_review(request, item_id, user_id):
     else:
         return redirect("error")
 
-
+@csrf_exempt
+def search(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        # results = Item.objects.filter(description__icontains=data)
+        # result_dic = [result.as_json() for result in results]
+        items = serializers.serialize('json', Item.objects.filter(description__icontains=data))
+        return HttpResponse(json.dumps(items), content_type='application/json')
