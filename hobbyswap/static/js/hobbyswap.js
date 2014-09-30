@@ -30,7 +30,7 @@ $(document).ready(function () {
 
 
                   });
-                
+
 
 
 //                $('.searchResults').html('<div class="col-md-4"><div class="thumbnail"> <div class="class1 text-center"><p>{{ listing.category }}</p><div class="image">'+
