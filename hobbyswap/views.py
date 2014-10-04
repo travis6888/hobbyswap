@@ -109,15 +109,15 @@ def register(request):
 
         if form.is_valid():
             reg_user = form.save()
-
-            text_content = 'Thank you for signing up for our website, {}'.format(reg_user.username)
-
-            html_content = '<h2>Thanks {} {} for signing up!</h2> <div>I hope you enjoy using our ' \
-                           'site</div>'.format(reg_user.first_name, reg_user.last_name)
-
-            msg = EmailMultiAlternatives("Welcome!", text_content, settings.DEFAULT_FROM_EMAIL, [reg_user.email])
-            msg.attach_alternative(html_content, "text/html")
-            msg.send()
+            #
+            # text_content = 'Thank you for signing up for our website, {}'.format(reg_user.username)
+            #
+            # html_content = '<h2>Thanks {} {} for signing up!</h2> <div>I hope you enjoy using our ' \
+            #                'site</div>'.format(reg_user.first_name, reg_user.last_name)
+            #
+            # msg = EmailMultiAlternatives("Welcome!", text_content, settings.DEFAULT_FROM_EMAIL, [reg_user.email])
+            # msg.attach_alternative(html_content, "text/html")
+            # msg.send()
             return redirect("home")
     else:
         form = EmailUserCreationForm()
@@ -146,15 +146,15 @@ def post_item(request):
                                         condition=condition, beg_availability=beg_availability,
                                         end_availability=end_availability, post_user=post_user,
                                         image=image, category=category)
-            text_content = 'Thank you for posting a {} for rent on HobbySwap'.format(items.item)
-            html_content = '<h2> Please make sure all the information you provided is correct<h2><p> Description ' \
-                           '{}</p><p>Availability {} to {}</p><p>Condition {}</p>'.format(items.description,
-                                                                                          items.beg_availability,
-                                                                                          items.end_availability,
-                                                                                          items.condition)
-            msg = EmailMultiAlternatives("Welcome!", text_content, settings.DEFAULT_FROM_EMAIL, [items.post_user.email])
-            msg.attach_alternative(html_content, "text/html")
-            msg.send()
+            # text_content = 'Thank you for posting a {} for rent on HobbySwap'.format(items.item)
+            # html_content = '<h2> Please make sure all the information you provided is correct<h2><p> Description ' \
+            #                '{}</p><p>Availability {} to {}</p><p>Condition {}</p>'.format(items.description,
+            #                                                                               items.beg_availability,
+            #                                                                               items.end_availability,
+            #                                                                               items.condition)
+            # msg = EmailMultiAlternatives("Welcome!", text_content, settings.DEFAULT_FROM_EMAIL, [items.post_user.email])
+            # msg.attach_alternative(html_content, "text/html")
+            # msg.send()
             return redirect("thanks")
     else:
         form = PostItemForm()
@@ -214,11 +214,11 @@ def create_review(request, item_id):
                 subject = form.cleaned_data['subject']
                 text = form.cleaned_data['text']
                 review = Review.objects.create(subject=subject, text=text, user=request.user, item=item)
-                text_content = 'Thank you for posting a review of {} on HobbySwap'.format(review.item)
-                html_content = 'Thank you for posting a review of {} on HobbySwap'.format(review.item)
-                msg = EmailMultiAlternatives("Welcome!", text_content, settings.DEFAULT_FROM_EMAIL, [review.user.email])
-                msg.attach_alternative(html_content, "text/html")
-                msg.send()
+                # text_content = 'Thank you for posting a review of {} on HobbySwap'.format(review.item)
+                # html_content = 'Thank you for posting a review of {} on HobbySwap'.format(review.item)
+                # msg = EmailMultiAlternatives("Welcome!", text_content, settings.DEFAULT_FROM_EMAIL, [review.user.email])
+                # msg.attach_alternative(html_content, "text/html")
+                # msg.send()
                 return redirect('home')
         else:
             form = ReviewForm(initial={'item': item.item})
