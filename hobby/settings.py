@@ -72,12 +72,6 @@ LOGIN_URL = 'login'
 # AUTH_USER_MODEL = 'User'
 
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'travis.cockcroft1@gmail.com'
-EMAIL_HOST_PASSWORD = 'travis88'
-EMAIL_PORT = 587
-DEFAULT_FROM_EMAIL = 'travis.cockcroft1@gmail.com'
 
 
 # Database
